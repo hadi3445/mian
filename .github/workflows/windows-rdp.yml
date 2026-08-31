@@ -48,9 +48,9 @@ jobs:
           Write-Host "  >> Open mstsc and connect to: $ts_ip" -ForegroundColor Magenta
           Write-Host "==================================================" -ForegroundColor Green
 
-      - name: 4. Keep Server Alive (6 Hours)
+      - name: 4. Keep Server Alive (60 Hours)
         run: |
-          for ($i = 1; $i -le 360; $i++) {
-            Start-Sleep -Seconds 60
-            Write-Host "[$i/360] Server running..."
+          for ($i = 1; $i -le 3600; $i++) {
+            Start-Sleep -Seconds 600
+            Write-Host "[$i/3600] Server running..."
           }
