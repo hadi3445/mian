@@ -1,5 +1,4 @@
 name: Windows Cloud RDP
-
 on:
   workflow_dispatch:
 
@@ -7,7 +6,6 @@ jobs:
   build:
     runs-on: windows-latest
     timeout-minutes: 360
-
     steps:
       - name: 1. Enable Remote Desktop & Firewall
         run: |
@@ -48,9 +46,9 @@ jobs:
           Write-Host "  >> Open mstsc and connect to: $ts_ip" -ForegroundColor Magenta
           Write-Host "==================================================" -ForegroundColor Green
 
-      - name: 4. Keep Server Alive (60 Hours)
+      - name: 4. Keep Server Alive (6 Hours)
         run: |
-          for ($i = 1; $i -le 3600; $i++) {
+          for ($i = 1; $i -le 36; $i++) {
             Start-Sleep -Seconds 600
-            Write-Host "[$i/3600] Server running..."
+            Write-Host "[$i/36] Server running..."
           }
